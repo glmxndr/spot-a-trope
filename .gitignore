@@ -1,0 +1,12 @@
+*~
+**/*~
+log/*.log
+config/database.yml
+db/*sqlite*
+tmp/restart.txt
+tmp/cache/*
+tmp/pids/*
+tmp/sessions/*
+tmp/sockets/*
+
+

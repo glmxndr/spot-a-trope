@@ -1,0 +1,40 @@
+<h1>Editing edition</h1>
+
+<% form_for(@edition) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :language_id %><br />
+    <%= f.text_field :language_id %>
+  </p>
+  <p>
+    <%= f.label :opus_id %><br />
+    <%= f.text_field :opus_id %>
+  </p>
+  <p>
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label :translator %><br />
+    <%= f.text_field :translator %>
+  </p>
+  <p>
+    <%= f.label :year %><br />
+    <%= f.text_field :year %>
+  </p>
+  <p>
+    <%= f.label :country %><br />
+    <%= f.text_field :country %>
+  </p>
+  <p>
+    <%= f.label :city %><br />
+    <%= f.text_field :city %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @edition %> |
+<%= link_to 'Back', editions_path %>

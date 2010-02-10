@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  tocentry_id: 1
+  content: MyText
+  notes: MyText
+  title: MyText
+
+two:
+  tocentry_id: 1
+  content: MyText
+  notes: MyText
+  title: MyText

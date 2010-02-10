@@ -1,0 +1,23 @@
+<p>
+  <b>Opus:</b>
+  <%=h @tocentry.opus_id %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%=h @tocentry.name %>
+</p>
+
+<p>
+  <b>Code:</b>
+  <%=h @tocentry.code %>
+</p>
+
+<p>
+  <b>Type:</b>
+  <%=h @tocentry.type %>
+</p>
+
+
+<%= link_to 'Edit', edit_tocentry_path(@tocentry) %> |
+<%= link_to 'Back', tocentries_path %>

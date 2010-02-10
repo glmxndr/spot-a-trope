@@ -1,0 +1,20 @@
+<h1>Editing flag</h1>
+
+<% form_for(@flag) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :trope_id %><br />
+    <%= f.text_field :trope_id %>
+  </p>
+  <p>
+    <%= f.label :tocentry_id %><br />
+    <%= f.text_field :tocentry_id %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @flag %> |
+<%= link_to 'Back', flags_path %>

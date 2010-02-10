@@ -1,0 +1,19 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  language_id: 1
+  opus_id: 1
+  title: MyString
+  translator: MyString
+  year: 1
+  country: MyString
+  city: MyString
+
+two:
+  language_id: 1
+  opus_id: 1
+  title: MyString
+  translator: MyString
+  year: 1
+  country: MyString
+  city: MyString

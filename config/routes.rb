@@ -1,4 +1,20 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :flags
+
+  map.resources :trope_translations
+
+  map.resources :tropes
+
+  map.resources :entries
+
+  map.resources :editions
+
+  map.resources :tocentries
+
+  map.resources :opera
+
+  map.resources :languages
+
   # The priority is based upon order of creation: first created -> highest priority.
 
   # Sample of regular route:

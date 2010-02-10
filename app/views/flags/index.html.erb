@@ -1,0 +1,22 @@
+<h1>Listing flags</h1>
+
+<table>
+  <tr>
+    <th>Trope</th>
+    <th>Tocentry</th>
+  </tr>
+
+<% @flags.each do |flag| %>
+  <tr>
+    <td><%=h flag.trope_id %></td>
+    <td><%=h flag.tocentry_id %></td>
+    <td><%= link_to 'Show', flag %></td>
+    <td><%= link_to 'Edit', edit_flag_path(flag) %></td>
+    <td><%= link_to 'Destroy', flag, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New flag', new_flag_path %>

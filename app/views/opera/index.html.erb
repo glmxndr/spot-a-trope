@@ -1,0 +1,22 @@
+<h1>Listing opera</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Author</th>
+  </tr>
+
+<% @opera.each do |opus| %>
+  <tr>
+    <td><%=h opus.title %></td>
+    <td><%=h opus.author %></td>
+    <td><%= link_to 'Show', opus %></td>
+    <td><%= link_to 'Edit', edit_opus_path(opus) %></td>
+    <td><%= link_to 'Destroy', opus, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New opus', new_opus_path %>

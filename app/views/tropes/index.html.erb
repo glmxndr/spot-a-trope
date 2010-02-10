@@ -1,0 +1,20 @@
+<h1>Listing tropes</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+  </tr>
+
+<% @tropes.each do |trope| %>
+  <tr>
+    <td><%=h trope.name %></td>
+    <td><%= link_to 'Show', trope %></td>
+    <td><%= link_to 'Edit', edit_trope_path(trope) %></td>
+    <td><%= link_to 'Destroy', trope, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New trope', new_trope_path %>

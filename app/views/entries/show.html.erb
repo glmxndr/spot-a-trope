@@ -1,0 +1,23 @@
+<p>
+  <b>Tocentry:</b>
+  <%=h @entry.tocentry_id %>
+</p>
+
+<p>
+  <b>Content:</b>
+  <%=h @entry.content %>
+</p>
+
+<p>
+  <b>Notes:</b>
+  <%=h @entry.notes %>
+</p>
+
+<p>
+  <b>Title:</b>
+  <%=h @entry.title %>
+</p>
+
+
+<%= link_to 'Edit', edit_entry_path(@entry) %> |
+<%= link_to 'Back', entries_path %>

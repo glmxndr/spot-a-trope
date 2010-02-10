@@ -1,0 +1,2 @@
+module OperaHelper
+end

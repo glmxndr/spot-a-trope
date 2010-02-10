@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  opus_id: 1
+  name: MyString
+  code: MyString
+  type: MyString
+
+two:
+  opus_id: 1
+  name: MyString
+  code: MyString
+  type: MyString

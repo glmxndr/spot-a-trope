@@ -1,0 +1,38 @@
+<p>
+  <b>Language:</b>
+  <%=h @edition.language_id %>
+</p>
+
+<p>
+  <b>Opus:</b>
+  <%=h @edition.opus_id %>
+</p>
+
+<p>
+  <b>Title:</b>
+  <%=h @edition.title %>
+</p>
+
+<p>
+  <b>Translator:</b>
+  <%=h @edition.translator %>
+</p>
+
+<p>
+  <b>Year:</b>
+  <%=h @edition.year %>
+</p>
+
+<p>
+  <b>Country:</b>
+  <%=h @edition.country %>
+</p>
+
+<p>
+  <b>City:</b>
+  <%=h @edition.city %>
+</p>
+
+
+<%= link_to 'Edit', edit_edition_path(@edition) %> |
+<%= link_to 'Back', editions_path %>

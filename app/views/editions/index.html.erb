@@ -1,0 +1,32 @@
+<h1>Listing editions</h1>
+
+<table>
+  <tr>
+    <th>Language</th>
+    <th>Opus</th>
+    <th>Title</th>
+    <th>Translator</th>
+    <th>Year</th>
+    <th>Country</th>
+    <th>City</th>
+  </tr>
+
+<% @editions.each do |edition| %>
+  <tr>
+    <td><%=h edition.language_id %></td>
+    <td><%=h edition.opus_id %></td>
+    <td><%=h edition.title %></td>
+    <td><%=h edition.translator %></td>
+    <td><%=h edition.year %></td>
+    <td><%=h edition.country %></td>
+    <td><%=h edition.city %></td>
+    <td><%= link_to 'Show', edition %></td>
+    <td><%= link_to 'Edit', edit_edition_path(edition) %></td>
+    <td><%= link_to 'Destroy', edition, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New edition', new_edition_path %>

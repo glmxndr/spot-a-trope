@@ -1,0 +1,26 @@
+<h1>Listing trope_translations</h1>
+
+<table>
+  <tr>
+    <th>Language</th>
+    <th>Title</th>
+    <th>Description</th>
+    <th>Trope</th>
+  </tr>
+
+<% @trope_translations.each do |trope_translation| %>
+  <tr>
+    <td><%=h trope_translation.language_id %></td>
+    <td><%=h trope_translation.title %></td>
+    <td><%=h trope_translation.description %></td>
+    <td><%=h trope_translation.trope_id %></td>
+    <td><%= link_to 'Show', trope_translation %></td>
+    <td><%= link_to 'Edit', edit_trope_translation_path(trope_translation) %></td>
+    <td><%= link_to 'Destroy', trope_translation, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New trope_translation', new_trope_translation_path %>

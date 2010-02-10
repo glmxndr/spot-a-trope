@@ -1,0 +1,28 @@
+<h1>Editing trope_translation</h1>
+
+<% form_for(@trope_translation) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :language_id %><br />
+    <%= f.text_field :language_id %>
+  </p>
+  <p>
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label :description %><br />
+    <%= f.text_area :description %>
+  </p>
+  <p>
+    <%= f.label :trope_id %><br />
+    <%= f.text_field :trope_id %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @trope_translation %> |
+<%= link_to 'Back', trope_translations_path %>

@@ -74,5 +74,5 @@ Rails::Initializer.run do |config|
   # config.active_record.observers = :cacher, :garbage_collector, :forum_observer
 end
 
-Inflector.inflections { |inflection| inflection.irregular "opus", "opera" }
+ActiveSupport::Inflector.inflections { |inflection| inflection.irregular "opus", "opera" }
 

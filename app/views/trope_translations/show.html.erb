@@ -1,0 +1,23 @@
+<p>
+  <b>Language:</b>
+  <%=h @trope_translation.language_id %>
+</p>
+
+<p>
+  <b>Title:</b>
+  <%=h @trope_translation.title %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @trope_translation.description %>
+</p>
+
+<p>
+  <b>Trope:</b>
+  <%=h @trope_translation.trope_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_trope_translation_path(@trope_translation) %> |
+<%= link_to 'Back', trope_translations_path %>

@@ -1,0 +1,7 @@
+if @result
+    page << %Q/$('#trope_#{@flag.trope_id}')
+        .attr('flag_id','#{@flag.id}')
+        .remove().appendTo('#bound_tropes');/
+else
+    page << "alert('Something went wrong...')"
+end

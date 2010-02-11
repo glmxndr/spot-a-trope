@@ -1,13 +1,18 @@
-<p>
-  <b>Title:</b>
-  <%=h @opus.title %>
-</p>
+<%= link_to 'Edit', edit_opus_path(@opus) %> |
+<%= link_to 'Back', opera_path %>
 
-<p>
-  <b>Author:</b>
-  <%=h @opus.author %>
-</p>
+<div class="top title">
+<h1><%= @opus.title %></h1>
+<h2><%=h @opus.author %></h2>
+</div>
 
+<%- unless @opus.mainentries.empty? -%>
+    <ul>
+    <%- for tocentry in @opus.mainentries -%>
+        <%= render :partial => 'tocentries/_node', :locals => { :tocentry => tocentry } -%>
+    <%- end -%>
+    </ul>
+<%- end -%>
 
 <%= link_to 'Edit', edit_opus_path(@opus) %> |
 <%= link_to 'Back', opera_path %>

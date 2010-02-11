@@ -4,7 +4,7 @@ class CreateTocentries < ActiveRecord::Migration
       t.integer :opus_id
       t.string :name
       t.string :code
-      t.string :toctype
+      t.boolean :starred
 
       t.timestamps
     end

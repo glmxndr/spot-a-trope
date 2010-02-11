@@ -1,0 +1,5 @@
+if @tocentry.starred
+  page[:star_container].replace_html "<img src='/images/star.png' height='20' width='20' alt='starred'/>"
+else
+  page[:star_container].replace_html ""
+end

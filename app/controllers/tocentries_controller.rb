@@ -1,4 +1,15 @@
 class TocentriesController < ApplicationController
+
+  def togglestar
+    @tocentry = Tocentry.find(params[:id])
+    @tocentry.starred = @tocentry.starred ? false : true
+    @tocentry.save
+    respond_to do |format|
+      format.js
+    end
+  end
+
+
   # GET /tocentries
   # GET /tocentries.xml
   def index

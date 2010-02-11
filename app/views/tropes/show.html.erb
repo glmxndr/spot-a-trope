@@ -1,7 +1,33 @@
+<div class="top title">
+<h2>Trope page</h2>
+<h1><%= @trope.name %></h1>
+</div>
+
+<h2 class="toc">Translations</h2>
+<div class="toc">
+<ul>
+<%- for trans in @trope.trope_translations -%>
+<li><%= trans.language.name %>: <%= trans.title %></li>
+<%- end -%>
+</ul>
+</div>
+
+<h2 class="toc">Toc Entries</h2>
+<div class="toc">
+<ul>
+<%- for tocentry in @trope.tocentries -%>
+<%= render :partial => 'tocentries/_node', :locals => { :tocentry => tocentry } -%>
+<%- end -%>
+</ul>
+</div>
+
+
+
 <p>
   <b>Name:</b>
   <%=h @trope.name %>
 </p>
+
 
 
 <%= link_to 'Edit', edit_trope_path(@trope) %> |

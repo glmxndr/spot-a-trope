@@ -1,23 +1,87 @@
-<p>
-  <b>Opus:</b>
-  <%=h @tocentry.opus_id %>
-</p>
 
-<p>
-  <b>Name:</b>
-  <%=h @tocentry.name %>
-</p>
-
-<p>
-  <b>Code:</b>
-  <%=h @tocentry.code %>
-</p>
-
-<p>
-  <b>Type:</b>
-  <%=h @tocentry.type %>
-</p>
+<%- if @tocentry.preceding -%>
+  <%= link_to "|&lt; "+@tocentry.preceding.name+"|", @tocentry.preceding -%> 
+<%- end -%>
+<%- if @tocentry.parent -%>
+  <%= link_to "|^ "+@tocentry.parent.name+"|", @tocentry.parent -%> 
+<%- end -%>
+<%- if @tocentry.following -%>
+  <%= link_to "|"+@tocentry.following.name+" &gt;|", @tocentry.following -%>
+<%- end -%>
 
 
+<div class="top title">
+<h1><%= @tocentry.opus.title %></h1>
+<h2><%= @tocentry.opus.author %></h2>
+<h3><span id="star_container"><%- if @tocentry.starred -%>
+  <%= image_tag 'star.png', :size => "20x20", :alt => "starred" %>
+<%- end -%></span>
+<%= link_to_remote @tocentry.name, :update => "tocentries",
+    :url => { :action => "togglestar", :id => @tocentry.id } %></h3>
+</div>
+
+<%- unless @tocentry.entries.empty? -%>
+<h2 class="toc">Entries</h2>
+<div class="toc" id="entries">
+    <%- for entry in @tocentry.entries -%>
+    <%- if entry.edition.selected -%>
+        <%= render :partial => 'entries/render', :locals => { :entry => entry } -%>            
+    <%- end -%>
+    <%- end -%>
+</div>
+<%- end -%>
+
+
+<%- unless @tocentry.children.empty? -%>
+<h2 class="toc">Subsections</h2>
+<div class="toc">
+    <ul>
+    <%= render :partial => '_node', :locals => { :tocentry => @tocentry } -%>
+    </ul>
+</div>
+<%- end -%>
+
+
+<%- if @tocentry.preceding -%>
+  <%= link_to "|&lt; "+@tocentry.preceding.name+"|", @tocentry.preceding -%> 
+<%- end -%>
+<%- if @tocentry.parent -%>
+  <%= link_to "|^ "+@tocentry.parent.name+"|", @tocentry.parent -%> 
+<%- end -%>
+<%- if @tocentry.following -%>
+  <%= link_to "|"+@tocentry.following.name+" &gt;|", @tocentry.following -%>
+<%- end -%>
+<br/>
 <%= link_to 'Edit', edit_tocentry_path(@tocentry) %> |
 <%= link_to 'Back', tocentries_path %>
+
+<ul id="unbound_tropes">
+    <%- for trope in @tocentry.unbound_tropes -%>
+        <li id="trope_<%= trope.id %>"
+            trope_id="<%= trope.id %>"
+            tocentry_id="<%= @tocentry.id %>"
+            flag_id=""
+            class="trope" 
+            title="<%= trope.trope_translations.first.title %>"
+            style="background_color:<%= trope.background_color %>"
+        ><%= h trope.name_with_count %></li>
+    <%- end -%>    
+</ul>
+
+<ul id="bound_tropes">
+    <%- for flag in @tocentry.flags -%>
+        <li id="trope_<%= flag.trope_id %>"
+            trope_id="<%= flag.trope_id %>"
+            tocentry_id="<%= @tocentry.id %>"
+            flag_id="<%= flag.id %>"
+            class="trope" 
+            title="<%= flag.trope.trope_translations.first.title %>"
+        ><%= h flag.trope.name_with_count %></li>
+    <%- end -%>    
+</ul>
+
+<%= drop_receiving_element("entries", 
+    :with   => "'flag[trope_id]=' + ui.draggable.attr('trope_id') + '&flag[tocentry_id]=' + ui.draggable.attr('tocentry_id')",
+    :url => { :controller => "flags", :action => "create" }
+    ) 
+%>

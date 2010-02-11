@@ -1,18 +1,14 @@
 ActionController::Routing::Routes.draw do |map|
+
+  map.root :controller => "opera", :action => "index"
+
   map.resources :flags
-
   map.resources :trope_translations
-
   map.resources :tropes
-
   map.resources :entries
-
   map.resources :editions
-
   map.resources :tocentries
-
   map.resources :opera
-
   map.resources :languages
 
   # The priority is based upon order of creation: first created -> highest priority.

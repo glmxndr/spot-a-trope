@@ -41,15 +41,17 @@ class FlagsController < ApplicationController
   # POST /flags.xml
   def create
     @flag = Flag.new(params[:flag])
-
     respond_to do |format|
-      if @flag.save
+      @result = @flag.save
+      if @result
         flash[:notice] = 'Flag was successfully created.'
         format.html { redirect_to(@flag) }
         format.xml  { render :xml => @flag, :status => :created, :location => @flag }
+        format.js
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @flag.errors, :status => :unprocessable_entity }
+        format.js
       end
     end
   end

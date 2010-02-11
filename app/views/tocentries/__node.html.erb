@@ -1,0 +1,15 @@
+<li class="tocentry"><div class="tocentry">
+<%- if tocentry.starred -%>
+  <span style="display:inline-block" class="ui-icon ui-icon-star">&nbsp;</span>
+<%- else -%>
+  <span style="display:inline-block;background-position: -224px -224px; }" class="ui-icon">&nbsp;</span>
+<%- end -%>
+<%= link_to tocentry.name, tocentry %></div>
+<%- unless tocentry.children.empty? -%>
+  <ul>
+  <%- for subentry in tocentry.children -%>
+    <%= render :partial => 'tocentries/_node', :locals => {:tocentry => subentry} %>
+  <%- end -%>  
+  </ul>
+<%- end -%>
+</li>

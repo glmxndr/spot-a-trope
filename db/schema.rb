@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100210111058) do
+ActiveRecord::Schema.define(:version => 20100210234603) do
 
   create_table "editions", :force => true do |t|
     t.integer  "language_id"
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(:version => 20100210111058) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "code"
+    t.boolean  "selected"
   end
 
   create_table "entries", :force => true do |t|
@@ -63,6 +64,7 @@ ActiveRecord::Schema.define(:version => 20100210111058) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "parent_id"
+    t.boolean  "starred"
   end
 
   add_index "tocentries", ["code"], :name => "tocentries_code_index", :unique => true

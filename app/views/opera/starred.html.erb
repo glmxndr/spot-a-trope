@@ -1,0 +1,17 @@
+
+<div class="top title">
+<h1><%= @opus.title %></h1>
+<h2><%= @opus.author %></h2>
+<h3>Starred entries</h3>
+</div>
+
+<%- for tocentry in @tocentries -%>
+<h2 class="toc"><span class="ui-icon ui-icon-star">&nbsp;</span> <%= tocentry.name %></h2>
+  <div class="starred tocentry toc">
+    <%- for entry in tocentry.entries -%>
+    <%- if entry.edition.selected -%>
+        <%= render :partial => 'entries/render', :locals => { :entry => entry } -%>
+    <%- end -%>
+    <%- end -%>
+  </div>
+<%- end -%>

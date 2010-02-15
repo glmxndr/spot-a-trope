@@ -10,6 +10,16 @@ class OperaController < ApplicationController
     end
   end
 
+
+  def starred
+    @opus = Opus.find(params[:id])
+    @tocentries = Tocentry.all(:conditions => { :opus_id => @opus.id, :starred => true} )
+    respond_to do |format|
+      format.html # index.html.erb
+      format.xml  { render :xml => @tocentries }
+    end   
+  end
+
   # GET /opera/1
   # GET /opera/1.xml
   def show
